@@ -10,19 +10,23 @@
 #include <stdlib.h>
 using namespace std;
 
-class dice{
+class Dice{
 private:
 	int _face_value;
 
 public:
+	Dice(){
+		//srand(time(NULL));
+		roll();
+	}
 	int get_face_value();
 	void roll();
 };
 
-class dice_game{
+class Dice_game{
 private:
-	dice _dado1;
-	dice _dado2;
+	Dice _dado1;
+	Dice _dado2;
 
 public:
 	bool play();
@@ -32,7 +36,7 @@ public:
 int main() {
 	cout << "Ola Marilene" << endl; // prints !!!Hello World!!!
 
-	dice_game game;
+	Dice_game game;
 
 	if(game.play()){
 		cout << "Vitoria!" << endl;
@@ -44,15 +48,16 @@ int main() {
 	return 0;
 }
 
-int dice::get_face_value(){
+int Dice::get_face_value(){
 	return _face_value;
 };
 
-void dice::roll(){
+void Dice::roll(){
+	//srand(time(NULL));
 	_face_value=(rand() % 6)+1;
 };
 
-bool dice_game::play(){
+bool Dice_game::play(){
 	int d1, d2;
 	_dado1.roll();
 	d1=_dado1.get_face_value();
@@ -60,6 +65,7 @@ bool dice_game::play(){
 	d2=_dado2.get_face_value();
 
 	cout << "Dado 1: " << d1 <<", Dado 2: " << d2 <<endl;
+
 	if((d1+d2)==7){
 		return true;
 	}

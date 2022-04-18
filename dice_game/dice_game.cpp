@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <time.h>
 using namespace std;
 
 class Dice{
@@ -16,7 +17,7 @@ private:
 
 public:
 	Dice(){
-		//srand(time(NULL));
+		srand(time(NULL));
 		roll();
 	}
 	int get_face_value();
@@ -35,15 +36,20 @@ public:
 
 int main() {
 	cout << "Ola Marilene" << endl; // prints !!!Hello World!!!
+	int vit=0, der=0;
 
 	Dice_game game;
-
-	if(game.play()){
-		cout << "Vitoria!" << endl;
+	for(int i=0; i<100; i++){
+		if(game.play()){
+			cout << "Vitoria!" << endl;
+			vit++;
+		}
+		else{
+			cout << "Derrota!" << endl;
+			der++;
+		};
 	}
-	else{
-		cout << "Derrota!" << endl;
-	};
+	cout << "Vitorias: " << vit <<", Derrotas: " << der <<endl;
 
 	return 0;
 }

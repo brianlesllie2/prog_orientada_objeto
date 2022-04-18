@@ -35,7 +35,7 @@ public:
 
 
 int main() {
-	cout << "Ola Marilene" << endl; // prints !!!Hello World!!!
+	cout << "Ola Marilene" << endl; // prints Ola Marilene
 	int vit=0, der=0;
 
 	Dice_game game;

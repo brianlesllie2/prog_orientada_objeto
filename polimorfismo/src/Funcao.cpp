@@ -12,5 +12,7 @@ Funcao::Funcao() {
 
 }
 
-
+Funcao::~Funcao() {
+	// TODO Auto-generated destructor stub
+}
 

@@ -12,16 +12,18 @@ class Funcao {
 public:
 	Funcao(Funcao*);
 	Funcao();
-	double operator()(double x);
+	virtual double operator()(double x)=0;
 	double integrar(Funcao*, double x0, double x1, double step);
+	virtual ~Funcao();
 };
 
 class Constante{
 public:
 	Constante(double val);
-	double operator()(double x);
+	virtual double operator()(double x)=0;
+	virtual ~Constante();
 private:
-	double	value;
+	double value;
 };
 
 class Escalar{
@@ -29,7 +31,8 @@ public:
 	Escalar(double val, Funcao*);
 	Escalar(double val);
 	Escalar();
-	double operator()(double x);
+	virtual double operator()(double x)=0;
+	virtual ~Escalar();
 private:
 	double value;
 };
@@ -39,7 +42,8 @@ public:
 	Potencial(double val, Funcao*);
 	Potencial(double val);
 	Potencial();
-	double operator()(double x);
+	virtual double operator()(double x)=0;
+	virtual ~Potencial();
 private:
 	double value;
 };
@@ -49,7 +53,8 @@ public:
 	Exponencial(double val, Funcao*);
 	Exponencial(double val);
 	Exponencial();
-	double operator()(double x);
+	virtual double operator()(double x)=0;
+	virtual ~Exponencial();
 private:
 	double value;
 };
@@ -59,19 +64,22 @@ public:
 	Seno(double val, Funcao*);
 	Seno(double val);
 	Seno();
-	double operator()(double x);
+	virtual double operator()(double x)=0;
+	virtual ~Seno();
 };
 
 class Cosseno{
 	Cosseno(double val, Funcao*);
 	Cosseno(double val);
 	Cosseno();
-	double operator()(double x);
+	virtual double operator()(double x)=0;
+	virtual ~Cosseno();
 };
 
 class FuncaoAgregada{
 	void agrega(Funcao*);
-	double operator()(double x);
+	virtual double operator()(double x)=0;
+	virtual ~FuncaoAgregada();
 };
 
 #endif /* FUNCAO_H_ */
